@@ -1,4 +1,5 @@
 import React from "react";
+import 'remixicon/fonts/remixicon.css';
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Trending from "./components/Trending.jsx";

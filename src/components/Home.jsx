@@ -27,7 +27,6 @@ function Home() {
     const getTrending = async ()=> {
         try {
             const {data} = await axios.get(`/trending/${category}/day`);
-            console.log(category)
             setTrending(data.results);
         }
         catch (error) {

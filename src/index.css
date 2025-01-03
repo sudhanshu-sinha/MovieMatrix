@@ -46,6 +46,7 @@ background: #272720;
 overflow: hidden;
 border-radius: 0.25em;
 }
+
 select::after {
     content: "\25BC";
     position: absolute;
