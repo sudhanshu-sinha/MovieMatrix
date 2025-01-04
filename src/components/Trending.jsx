@@ -14,6 +14,8 @@ function Trending() {
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
 
+    document.title = "MovieMatrix | Trending";
+
     const getTrending = async () => {
         try {
             const {data} = await axios.get(`/trending/${category}/${duration}?page=${page}`);
@@ -56,7 +58,7 @@ function Trending() {
                 </h1>
                 <div className="flex items-center justify-between w-[80%]">
                     <Topnav/>
-                    <Dropdown title="Category" options={["tv", "movie", "all"]} func={(e)=>setCategory(e.target.value)}/>
+                    <Dropdown title="Category" options={["tv", "movie", "All"]} func={(e)=>setCategory(e.target.value)}/>
                     <Dropdown title="Duration" options={["day", "week"]} func={(e)=>setDuration(e.target.value)}/>
                 </div>
             </div>

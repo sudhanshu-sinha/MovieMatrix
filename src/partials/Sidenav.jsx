@@ -16,7 +16,7 @@ function Sidenav() {
         <Link to="/trending" className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
           <i className="ri-fire-fill p-2"></i>Trending
         </Link>
-        <Link className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
+        <Link to="/popular" className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
           <i className="ri-bard-fill p-2"></i>Popular
         </Link>
         <Link className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
