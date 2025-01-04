@@ -1,26 +1,25 @@
 import {useNavigate} from "react-router-dom";
-import Topnav from "../partials/Topnav.jsx";
-import Dropdown from "../partials/Dropdown.jsx";
 import {useEffect, useState} from "react";
 import axios from "../utils/axios.jsx";
-import Cards from "../partials/Cards.jsx";
+import Topnav from "../partials/Topnav.jsx";
+import Dropdown from "../partials/Dropdown.jsx";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Cards from "../partials/Cards.jsx";
 
-function Trending() {
-    const navigate = useNavigate();
-    const [category, setCategory] = useState("all");
-    const [duration, setDuration] = useState("day");
-    const [trending, setTrending] = useState([]);
+function People(){
+    const navigate= useNavigate();
+    const [category, setCategory] = useState("popular");
+    const [people, setPeople] = useState([]);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
 
-    document.title = "MovieMatrix | Trending";
+    document.title = "MovieMatrix | People";
 
-    const getTrending = async () => {
+    const getPeople = async () => {
         try {
-            const {data} = await axios.get(`/trending/${category}/${duration}?page=${page}`);
+            const {data} = await axios.get(`/person/${category}?page=${page}`);
             if(data.results.length > 0) {
-                setTrending((prevState)=>[...prevState, ...data.results]);
+                setPeople((prevState)=>[...prevState, ...data.results]);
                 setPage(page + 1);
                 console.log(data);
             }
@@ -34,45 +33,45 @@ function Trending() {
     }
 
     const refreshHandler = () => {
-        if(trending.length == 0) {
-            getTrending();
+        if(people.length == 0) {
+            getPeople();
         }
         else {
             setPage(1);
-            setTrending([]);
-            getTrending();
+            setPeople([]);
+            getPeople();
         }
     }
 
     useEffect(() => {
         refreshHandler();
-    },[category, duration])
+    },[category])
 
-    return trending.length > 0 ? (
+    return people.length > 0 ?(
         <div className="w-screen h-screen">
             <div className="px-[1%] pt-8 w-full flex items-center h-[8vh]">
                 <h1 className="w-[20%] font-semibold text-2xl text-zinc-400">
                     <i className="hover:text-[#6556cd] ri-arrow-left-long-line pr-3"
                        onClick={() => navigate(-1)}>
-                    </i>{" "} Trending <small
+                    </i>{" "} People <small
                     className="ml-2 text-sm text-zinc-600">({category.charAt(0).toUpperCase() + category.slice(1)})</small>
                 </h1>
                 <div className="flex items-center justify-between w-[80%]">
                     <Topnav/>
-                    <Dropdown title="Category" options={["tv", "movie", "All"]} func={(e)=>setCategory(e.target.value)}/>
-                    <Dropdown title="Duration" options={["day", "week"]} func={(e)=>setDuration(e.target.value)}/>
+                    <Dropdown title="Category" options={["popular"]}
+                              func={(e) => setCategory(e.target.value)}/>
                 </div>
             </div>
             <InfiniteScroll
-            dataLength={trending.length}
-            next={getTrending}
-            hasMore={hasMore}
-            loader={<h4 className="bg-[#18181b] text-zinc-400">Loading...</h4>}
+                dataLength={people.length}
+                next={getPeople}
+                hasMore={hasMore}
+                loader={<h4 className="bg-[#18181b] text-zinc-400">Loading...</h4>}
             >
-                <Cards data={trending}/>
+                <Cards data={people}/>
             </InfiniteScroll>
         </div>
-    ) : <h1>Loading......</h1>;
+    ):<h1>Loading......</h1>;
 }
 
-export default Trending;
+export default People;

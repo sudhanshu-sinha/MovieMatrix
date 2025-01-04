@@ -13,7 +13,7 @@ function TvShows() {
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
 
-    document.title = "MovieMatrix | tvShows";
+    document.title = "MovieMatrix | Webseries";
 
     const getTvShow = async () => {
         try {

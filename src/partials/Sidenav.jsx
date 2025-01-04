@@ -25,7 +25,7 @@ function Sidenav() {
         <Link to="/webseries" className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
           <i className="ri-tv-2-fill p-2"></i>Web Series
         </Link>
-        <Link className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
+        <Link to="/people" className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
           <i className="ri-team-fill p-2"></i>People
         </Link>
         <hr></hr>
