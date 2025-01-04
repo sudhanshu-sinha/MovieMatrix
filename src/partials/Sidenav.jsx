@@ -22,7 +22,7 @@ function Sidenav() {
         <Link to="/movies" className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
           <i className="ri-movie-2-fill p-2"></i>Movies
         </Link>
-        <Link className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
+        <Link to="/webseries" className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
           <i className="ri-tv-2-fill p-2"></i>Web Series
         </Link>
         <Link className=" p-4 hover:bg-[#6556CD] duration-300 hover:text-white rounded-lg">
