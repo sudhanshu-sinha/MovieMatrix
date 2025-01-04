@@ -7,6 +7,8 @@ import Popular from "./components/Popular.jsx";
 import Movies from "./components/Movies.jsx";
 import TvShows from "./components/TvShows.jsx";
 import People from "./components/People.jsx";
+import About from "./components/About.jsx";
+import Contact from "./components/Contact.jsx";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/movies" element={<Movies/>} />
           <Route path="/webseries" element={<TvShows/>} />
           <Route path="/people" element={<People/>} />
+          <Route path="/about_us" element={<About/>} />
+          <Route path="/contact_us" element={<Contact/>} />
       </Routes>
     </div>
   );

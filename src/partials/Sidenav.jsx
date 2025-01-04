@@ -30,10 +30,10 @@ function Sidenav() {
         </Link>
         <hr></hr>
         <h2 className="text-white font-semibold my-2">Website Information</h2>
-        <Link className=" hover:bg-[#6556CD] duration-300 hover:text-white p-4 rounded-lg">
+        <Link to="/about_us" className=" hover:bg-[#6556CD] duration-300 hover:text-white p-4 rounded-lg">
           <i className="ri-information-fill p-2"></i>About MovieMatrix
         </Link>
-        <Link className=" hover:bg-[#6556CD] duration-300 hover:text-white p-4 rounded-lg">
+        <Link to="/contact_us" className=" hover:bg-[#6556CD] duration-300 hover:text-white p-4 rounded-lg">
           <i className="ri-phone-fill p-2"></i>Contact Us
         </Link>
       </nav>
